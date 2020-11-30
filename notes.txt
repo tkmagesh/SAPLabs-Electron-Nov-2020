@@ -1,0 +1,127 @@
+JavaScript framework for building desktop applications
+Open Source JavaScript framework
+Initially developed by github
+Node.js + Chromium
+
+Multiplatform
+Presentation = Web (html + css + js)
+
+IE Edge (webkit) + Moz + Chrome (webkit) + Safari (webkit) + Opera (webkit)
+
+Atom Editor
+Visual Studio Code
+Twitter Desktop client
+Microsoft Teams
+Github desktop client 
+Spotify
+Slack
+
+ES5 (ECMAScript 5 / JavaScript )
+==========================
+
+    Data Types
+        boolean, number, string, 
+        object, undefined, function
+
+    Programming Constructs
+        var, if else, switch case, for, for in, while, throw, try catch finally, function
+
+    Apis
+        Array, Math, Date, Error, RegEx, timer (setTimeout, clearTimeout, setInterval, clearInterval)
+
+    Unique Aspects
+        Object = Dictionary / Map / Hash -> Collection of key/value pairs
+        Not typed, dynamic
+        Method = attributes whose value is a function
+        Funtional
+            function are first class citizens (data / objects)
+                functions can be assigned to variables
+                functions can have attributes (in JS only)
+                functions can have methods (in JS only)
+                functions can be passed as arguments to other functions (Higher Order Functions)
+                functions can be returned as return value from other functions ( Higher Order Functions)
+        this
+            it doesnot matter where the function is (OR) who owns the function
+            What matters is 'HOW the function is invoked'
+
+            Function invocation types
+                - As a method of an object (obj)
+                    this -> obj
+
+                - AS a function
+                    this -> global (window in browser)
+
+                - Using the 'new' keyword
+                    this -> refers to a new object
+                    this -> returned by default
+
+                - using the 'call' method of a function
+
+                - using the 'apply' method of the function
+
+                - As an Immediately Invoked Function Expression (IIFE)
+
+Use Cases:
+add(10,20)
+add(10,'20')
+add(10, 'abc')
+add([10,20], [30,40])
+add([10,20], [30,'40'])
+add([10,20], [30,['40',50]])
+add([10,20], [30,'abc'])
+add(function(){ return [10,20]; }, function(){ return [30,'abc']; })
+add(function(){ return [10,20]; }, function(){ return [30,['40',50]]; })
+add([function(){ return [10,20]; }, function(){ return [30,['40',50]]; }])
+add(10)
+add()
+add(10,20,30,40,50)
+
+function add(){
+    function parseArg(n){
+        if (typeof n === 'function') return parseArg(n());
+        if (Array.isArray(n)) return add.apply(this, n);
+        return isNaN(n) ? 0 : parseInt(n)
+    }
+    return arguments.length <= 1 ? parseArg(arguments[0]) : parseArg(arguments[0]) + add(Array.prototype.slice.call(arguments, 1));
+}
+
+ES6
+==========================
+
+var x;
+x = 100;
+x = 'asdfa';
+x = true;
+
+
+Class Employee{
+    public int Id;
+    public string Name;
+    public decimal Salary;
+
+    constructor(int id, string name, decimal salary){
+        this.Id = id;
+        this.Name = name;
+        this.salary = salary;
+    }
+
+    public void display(){
+        console.log(this.Id, this.Name, this.Salary)
+    }
+}
+
+Employee e = new Employee();
+e.City = "Paris"
+
+function Employee(id, name, salary) {
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+}
+Employee.prototype.display = function(){
+    console.log(this.Id, this.Name, this.Salary)
+}
+
+var e = {};
+e.name = 'asdfas';
+e.city = 'paris'
