@@ -47,3 +47,7 @@ const btnDisplayError = document.getElementById('btnDisplayError');
 btnDisplayError.addEventListener('click', () => {
     ipcRenderer.send('evt:error', 'Something went wrong!');
 });
+
+ipcRenderer.on('evt:time', (evt, data) => {
+    document.getElementById('div-time').innerText = data;
+});

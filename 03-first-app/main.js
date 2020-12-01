@@ -17,6 +17,13 @@ function createWindow(){
     mainWindow.loadFile('index.html');
     mainWindow.webContents.openDevTools();
 
+    mainWindow.on('ready-to-show', () => {
+        setInterval(() => {
+            mainWindow.webContents.send('evt:time', new Date());
+        },1000);
+    });
+    
+
     /* const mainWindow2 = new BrowserWindow({
       width: 400,
       height: 400,
