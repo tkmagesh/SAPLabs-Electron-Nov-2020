@@ -187,3 +187,26 @@ CommonJS module system
         (default value of 'module.exports' is an empty object)
     use 'require' function to import entities from other files
 
+
+React
+    Component -> object that encapsulates (Data, Presentation, UI Behavior)
+    Application = composition of components
+    Virtual DOM
+
+React - Library ( UI concerns )
+
+Angular
+    Component
+    Directive
+    Pipe
+    Services
+    Modules
+
+    APIs
+        Router
+        Http
+
+react.js
+    - Virtual DOM
+react-dom.js
+    VDOM -> Actual DOM

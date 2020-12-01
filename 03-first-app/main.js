@@ -53,6 +53,7 @@ function createWindow(){
     mainWindow2.webContents.openDevTools(); */
 
     //Tray 
+    /* 
     tray = new Tray(path.join(__dirname, "icon.jpg"));
     const template  = [
         { 
@@ -73,7 +74,8 @@ function createWindow(){
 
     const contextMenu = Menu.buildFromTemplate(template);
     tray.setContextMenu(contextMenu);
-    tray.setToolTip('My Tray App');
+    tray.setToolTip('My Tray App'); 
+    */
 }
 
 ipcMain.on('evt:message', (evt, data)=>{
