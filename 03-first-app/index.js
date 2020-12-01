@@ -57,3 +57,11 @@ ipcRenderer.on('evt:time', (evt, data) => {
 
 const fileContents = fs.readFileSync(path.join(__dirname, 'main.js'), { encoding :'utf8'});
 document.getElementById('textArea1').value = fileContents;
+
+const btnSave = document.getElementById('btnSave');
+btnSave.addEventListener('click', () => {
+    const dataToSave = document.getElementById('textArea2').value;
+    const filePath = ''; //use the dialog.openSaveDialogSync() to the file path
+    fs.writeFileSync(filePath, dataToSave, { encoding: 'utf8'});
+    console.log('file saved');
+})
