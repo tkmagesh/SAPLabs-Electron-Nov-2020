@@ -1,4 +1,4 @@
-const { BrowserWindow, app, ipcMain, dialog } = require('electron');
+const { BrowserWindow, app, ipcMain, dialog, Menu } = require('electron');
 
 function createWindow(){
     const mainWindow = new BrowserWindow({
@@ -17,8 +17,9 @@ function createWindow(){
     mainWindow.loadFile('index.html');
     mainWindow.webContents.openDevTools();
 
-    let timerId ;
-    
+   /*  
+   let timerId ;
+
     mainWindow.on('ready-to-show', () => {
         timerId = setInterval(() => {
             mainWindow.webContents.send('evt:time', new Date());
@@ -27,8 +28,10 @@ function createWindow(){
 
     mainWindow.on('closed', () => {
         if (timerId) clearInterval(timerId);
-    });
+    }); 
+    */
     
+
 
     /* const mainWindow2 = new BrowserWindow({
       width: 400,
@@ -62,7 +65,33 @@ ipcMain.on('evt:error', (evt, data) => {
     dialog.showErrorBox('Application Error', data);
 });
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    createWindow();
+    const template = [
+        {
+            label : 'Demo',
+            submenu : [
+                {
+                    label : 'Greet',
+                    click : function(){
+                        console.log('Hi there!')
+                    }
+                },
+                {
+                    type : 'separator'
+                },
+                {
+                    label : 'Busy',
+                    type : 'radio',
+                    checked : true
+                }
+            ]
+        }
+    ];
+
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+});
 
 //mac
 app.on('window-all-closed', function(){
