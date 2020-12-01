@@ -1,4 +1,6 @@
 
+const fs = require('fs'),
+    path = require('path');
 const { remote, ipcRenderer } = require('electron');
 const { BrowserWindow } = remote;
 const btnCreateWindow = document.getElementById('btnCreateWindow');
@@ -51,3 +53,7 @@ btnDisplayError.addEventListener('click', () => {
 ipcRenderer.on('evt:time', (evt, data) => {
     document.getElementById('div-time').innerText = data;
 });
+
+
+const fileContents = fs.readFileSync(path.join(__dirname, 'main.js'), { encoding :'utf8'});
+document.getElementById('textArea1').value = fileContents;

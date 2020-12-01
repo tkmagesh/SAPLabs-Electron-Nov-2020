@@ -1,4 +1,4 @@
-const { BrowserWindow, app, ipcMain, dialog, Menu } = require('electron');
+const { BrowserWindow, app, ipcMain, dialog, Menu, MenuItem } = require('electron');
 
 function createWindow(){
     const mainWindow = new BrowserWindow({
@@ -123,4 +123,19 @@ app.on('activate', function(){
     if (BrowserWindow.getAllWindows().length === 0){
         createWindow();
     }
+});
+
+//Context menu
+app.on('browser-window-created', (evt, win) => {
+    const ctxMenu = new Menu();
+    ctxMenu.append(new MenuItem({
+        label : 'Hello',
+        click : function(){
+            console.log('Context menu activated');
+        }
+    }))
+    ctxMenu.append(new MenuItem({ role : 'selectall'}))
+    win.webContents.on('context-menu', (evt, params) => {
+        ctxMenu.popup(win, params.x, params.y);
+    });
 })
