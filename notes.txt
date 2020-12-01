@@ -208,5 +208,20 @@ Angular
 
 react.js
     - Virtual DOM
+    React
 react-dom.js
     VDOM -> Actual DOM
+    ReactDOM
+
+
+//Actual DOM
+/*
+var header = document.createElement('h1');
+header.setAttribute('id', 'header-1')
+header.innerText = 'Welcome to React.js!';
+document.body.appendChild(header)
+*/
+
+//Virutal DOM
+var header = React.createElement('h1', { 'id' : 'header-1'}, 'Welcome to React.js!')
+ReactDOM.render(header, document.getElementById('root'))
