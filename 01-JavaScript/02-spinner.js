@@ -40,14 +40,14 @@ Spinner.prototype.down = function down() {
 };
 
 class Spinner{
-    counter = 0;
+    #counter = 0;
 
     up(){
-        return ++this.counter;
+        return ++this.#counter;
     }
 
     down(){
-        return --this.counter;
+        return --this.#counter;
     }
 }
 

@@ -115,3 +115,75 @@ function add(...args){
 Create a html page ('clickTracker.html')
 The page should have a button ('Track')
 Everytime the button is clicked, the page should display the number of times the button was clicked
+
+
+Electron
+
+main process
+    created when the application is instantiated
+    only one main process per application
+    handle application life cycle events
+    native apis are available only to the main process
+    creates one or more renderer processes (BrowserWindow)
+
+renderer process
+    any number of renderer processes in an application
+    Offers user interaction (html pages)
+
+Communication between Main process and renderer process is achieved using Named Pipes
+IPC - Inter Process Communication
+ipcMain, ipcRenderer
+
+
+Node.js
+    JavaScript Runtime
+    Execute JS applications
+    Less Memory Footprint
+    Single Threaded Event Loop
+        Async I/O
+
+    Async Operation
+        Initiate it and don't wait for its completion
+            1. callbacks
+            2. events (Event Emitter)
+            3. promises
+            4. async await
+            5. generators
+            6. observables
+
+    Sync Operation
+        Wait for the operation to complete
+
+
+package.json
+    metadata information about the application
+        name
+        author
+        description
+        keywords
+        repository
+        private
+        version
+        license
+        scripts
+            commands to perform development activities on the code base
+
+        dependencies
+            document the third party libraries used in our application
+
+        devDependencies
+            third party libraries used for 'development' activities of the application
+
+npm
+yarn
+
+To create a package.json file
+    npm init
+
+
+CommonJS module system
+    Everything defined in a js file is considered PRIVATE
+    public entities have to be assiged to 'module.exports' 
+        (default value of 'module.exports' is an empty object)
+    use 'require' function to import entities from other files
+
