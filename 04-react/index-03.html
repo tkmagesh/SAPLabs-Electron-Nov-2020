@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UI</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        var counter = 0;
+        function onDocumentLoad() {
+            var btnRender = document.getElementById('btnRender');
+            btnRender.addEventListener('click', onBtnRenderClick);
+        }
+        function onBtnRenderClick() {
+            ++counter;
+            
+            const appEle = (
+                <div>
+                    <h1>React.js</h1>
+                    <hr/>
+                    <div>
+                        <label>Counter : </label>
+                        <span id="spanCounter">{counter}</span>
+                    </div>
+                    <section>
+                        <h3>Introduction</h3>
+                        <p>Aliquip nulla eiusmod non excepteur consectetur sit pariatur dolor. Pariatur culpa aliqua aute est minim excepteur mollit enim. Cillum id minim magna incididunt anim ipsum consectetur laborum proident fugiat labore. Eiusmod qui officia officia duis et cupidatat magna velit. Sit sunt reprehenderit nulla officia irure aliqua velit aliqua ut proident consequat ad ullamco. Occaecat dolore officia exercitation aliquip labore irure qui aute sit consequat occaecat dolor elit sint. In aliqua ex ut dolor reprehenderit.</p>
+                        <p>Ipsum proident magna voluptate esse nulla. Aute laboris labore commodo dolor aliqua labore tempor sit aliqua fugiat id ipsum fugiat. Sunt ea minim do minim cupidatat. Sit esse ea ullamco elit nostrud est.</p>
+                        <p>Eiusmod sunt ullamco et reprehenderit occaecat consectetur. Eiusmod nisi amet duis velit veniam excepteur nostrud minim ullamco do nostrud anim. Ex amet laborum ipsum labore officia aute voluptate proident est sit laborum ad sunt magna. Aliqua Lorem aliqua officia non irure nostrud quis laboris excepteur et tempor. Cupidatat labore ut excepteur deserunt et enim ad nisi cillum ullamco deserunt ad velit. Est eu consequat sunt occaecat cupidatat est voluptate. Nisi occaecat qui labore sunt eiusmod aliqua cupidatat ad sit cillum quis excepteur duis aliquip.</p>
+                    </section>
+                    <section>
+                        <h3>Advantages</h3>
+                        <ol>
+                            <li>Declarative</li>
+                            <li>Efficient</li>
+                        </ol>
+                    </section>
+                </div>
+            )
+            ReactDOM.render(appEle, document.getElementById('root'))
+        }
+        window.addEventListener('load', onDocumentLoad);
+    </script>
+</head>
+<body>
+    <input type="button" value="Render" id="btnRender">
+    <!-- <div>
+        <label>Counter : </label>
+        <span id="spanCounter"></span>
+    </div> -->
+    <div id="root">
+        
+    </div>
+</body>
+</html>
