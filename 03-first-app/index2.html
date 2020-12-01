@@ -7,11 +7,10 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body>
-    <h1>Index-1</h1>
-    <input type="button" value="Create Window" id="btnCreateWindow">
-    <input type="button" value="Send Message" id="btnSendMessage">
-    <script src="index.js">
-       
+    <h1>Index-2</h1>
+    <script>
+        console.log('Renderer process created - 2');
+        console.log(process.versions.node);
     </script>
 </body>
 </html>
