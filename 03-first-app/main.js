@@ -73,9 +73,17 @@ app.on('ready', () => {
             submenu : [
                 {
                     label : 'Greet',
-                    click : function(){
-                        console.log('Hi there!')
-                    }
+                    submenu : [
+                        {
+                            label : 'Personal',
+                            click: function () {
+                                console.log('Hi there!')
+                            }
+                        },
+                        {
+                            label : 'Official'
+                        }
+                    ]
                 },
                 {
                     type : 'separator'
@@ -85,6 +93,17 @@ app.on('ready', () => {
                     type : 'radio',
                     checked : true
                 }
+            ]
+        },
+        {
+            label: 'Edit',
+            submenu: [
+                { role: 'undo' },
+                { role: 'redo' },
+                { type: 'separator' },
+                { role: 'cut' },
+                { role: 'copy' },
+                { role: 'paste' }
             ]
         }
     ];
