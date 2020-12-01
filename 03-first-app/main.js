@@ -1,7 +1,8 @@
-const { BrowserWindow, app, ipcMain, dialog, Menu, MenuItem } = require('electron');
+const { BrowserWindow, app, ipcMain, dialog, Menu, MenuItem, Tray } = require('electron');
+const path = require('path');
 
 function createWindow(){
-    const mainWindow = new BrowserWindow({
+    /* const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         maxHeight : 600,
@@ -15,7 +16,7 @@ function createWindow(){
         }
     });
     mainWindow.loadFile('index.html');
-    mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools(); */
 
    /*  
    let timerId ;
@@ -48,6 +49,29 @@ function createWindow(){
     });
     mainWindow2.loadFile("index2.html");
     mainWindow2.webContents.openDevTools(); */
+
+    //Tray 
+    const tray = new Tray(path.join(__dirname, "icon.jpg"));
+    const template  = [
+        { 
+            label : 'Audio',
+            submenu : [
+                {
+                    label : 'Low',
+                    type : 'radio',
+                    checked : true
+                },
+                { 
+                    label : 'High',
+                    type : 'radio'
+                }
+            ]
+        }
+    ];
+
+    const contextMenu = Menu.buildFromTemplate(template);
+    tray.setContextMenu(contextMenu);
+    tray.setToolTip('My Tray App');
 }
 
 ipcMain.on('evt:message', (evt, data)=>{
