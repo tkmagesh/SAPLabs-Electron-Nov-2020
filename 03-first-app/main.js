@@ -1,4 +1,4 @@
-const { BrowserWindow, app, ipcMain } = require('electron');
+const { BrowserWindow, app, ipcMain, dialog } = require('electron');
 
 function createWindow(){
     const mainWindow = new BrowserWindow({
@@ -39,6 +39,15 @@ ipcMain.on('evt:message', (evt, data)=>{
     evt.sender.send('evt:ack', { message : 'Message successfully received'});
 });
 
+ipcMain.on('evt:messageSync', (evt, data) => {
+    console.log(data);
+    evt.returnValue = 'Message successfully received';
+    //evt.sender.send('evt:ack', { message: 'Message successfully received' });
+});
+
+ipcMain.on('evt:error', (evt, data) => {
+    dialog.showErrorBox('Application Error', data);
+});
 
 app.on('ready', createWindow);
 
