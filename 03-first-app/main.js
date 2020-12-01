@@ -1,6 +1,8 @@
 const { BrowserWindow, app, ipcMain, dialog, Menu, MenuItem, Tray } = require('electron');
 const path = require('path');
 
+let tray;
+
 function createWindow(){
     /* const mainWindow = new BrowserWindow({
         width: 800,
@@ -51,7 +53,7 @@ function createWindow(){
     mainWindow2.webContents.openDevTools(); */
 
     //Tray 
-    const tray = new Tray(path.join(__dirname, "icon.jpg"));
+    tray = new Tray(path.join(__dirname, "icon.jpg"));
     const template  = [
         { 
             label : 'Audio',
