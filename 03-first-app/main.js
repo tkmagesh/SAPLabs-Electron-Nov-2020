@@ -17,10 +17,16 @@ function createWindow(){
     mainWindow.loadFile('index.html');
     mainWindow.webContents.openDevTools();
 
+    let timerId ;
+    
     mainWindow.on('ready-to-show', () => {
-        setInterval(() => {
+        timerId = setInterval(() => {
             mainWindow.webContents.send('evt:time', new Date());
         },1000);
+    });
+
+    mainWindow.on('closed', () => {
+        if (timerId) clearInterval(timerId);
     });
     
 
