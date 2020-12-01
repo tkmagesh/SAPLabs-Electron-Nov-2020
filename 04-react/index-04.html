@@ -50,14 +50,26 @@
                 )
             }
         }
+
+        class GreeterContainer extends React.Component {
+            state = {
+                template : ''
+            };
+
+            render(){
+                return(
+                    <div>
+                        <label>Message Template :</label>
+                        <input type="text" onChange={ evt => this.setState({ template : evt.target.value })} />
+                        {/* <input type="button" value="Set Template" /> */}
+                        <Greeter msgTemplate={this.state.template}/>
+                    </div>
+                )
+            }
+        }
         
         ReactDOM.render(
-            <div>
-                <label>Message Template :</label>
-                <input type="text" />
-                <input type="button" value="Set Template" />
-                <Greeter msgTemplate="Have a good day!"/>
-            </div>, 
+            <GreeterContainer/>, 
         document.getElementById('root'))
     </script>
 </head>
