@@ -8,11 +8,8 @@
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
-    <style>
-        .highlight{
-            color : blue;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+
     <script type="text/babel">
         class Greeter extends React.Component {
 
@@ -27,9 +24,8 @@
             onBtnGreetClick = () => {
                 this.setState({
                     style : 'highlight',
-                    message : `Hi ${this.state.userName}, Have a nice day!`
+                    message : `Hi ${this.state.userName}, ${this.props.msgTemplate}`
                 });
-                console.log('greet button is clicked');
             }
 
             onTxtUserNameChange = (e) => {
@@ -37,6 +33,7 @@
                     userName : e.target.value
                 });
             }
+            
             //presentation
             render(){
                 return(
@@ -55,7 +52,10 @@
         }
         
         ReactDOM.render(
-            React.createElement(Greeter), 
+            <div>
+                <Greeter msgTemplate="Have a good day!"/>
+                <Greeter msgTemplate="Have a nice day!"/>
+            </div>, 
         document.getElementById('root'))
     </script>
 </head>
